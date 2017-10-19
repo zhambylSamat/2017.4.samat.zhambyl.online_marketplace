@@ -1,0 +1,58 @@
+def nowDate = new Date()
+def nowFormattedDate = nowDate.format("yyyy-MM-dd/HH:mm:ss")
+def vendorName = "greetgo!"
+
+allprojects {
+  apply plugin: 'idea'
+  apply plugin: 'java'
+  apply plugin: 'maven'
+
+  version = '001'
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+
+  group = "kz.sdu.education"
+
+  compileJava.options.debugOptions.debugLevel = "source, lines, vars"
+  compileJava.options.encoding = "UTF-8"
+  compileTestJava.options.debugOptions.debugLevel = "source, lines, vars"
+  compileTestJava.options.encoding = "UTF-8"
+}
+
+subprojects {
+  compileJava.options.encoding = "UTF-8"
+  compileTestJava.options.encoding = "UTF-8"
+
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
+
+  dependencies {
+    ext.greetgoMvcVersion = "2.0.7"
+    ext.greetgoDepInjectVersion = "2.0.0"
+    ext.guavaVersion = '12.0'
+
+    testCompile 'org.testng:testng:6.5.1'
+    testCompile 'org.easytesting:fest-assert-core:2.0M10'
+  }
+
+  jar.manifest.attributes 'Implementation-Title': project.name, 'Implementation-Version': version,
+      'Implementation-Vendor': vendorName, 'Built-By': System.getProperty("user.name"), 'Built-At': nowFormattedDate
+
+  sourceSets {
+    main {
+      java.srcDirs = ["src/main/java"]
+      resources.srcDirs = ["src/main/java", "src/main/resources"]
+      output.resourcesDir = "build/classes/main"
+    }
+    test {
+      java.srcDirs = ["src/test/java"]
+      resources.srcDirs = ["src/test/java", "src/test/resources"]
+      output.resourcesDir = "build/classes/test"
+    }
+  }
+
+  test.useTestNG()
+}
