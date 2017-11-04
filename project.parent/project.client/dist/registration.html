@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/libs.css">
+	<title></title>
+</head>
+<body>
+
+	<section class='container'>
+		<div class='row'>
+			<div class='col-md-12 col-sm-12 col-xs-12'>
+				<center>
+					<div id='registration-alert' style='padding:5%; border-radius: 5px; width: 100%; display: none;'>
+						
+					</div>
+				</center>
+			</div>
+			<div class='col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12'>
+				<center><h3 class='text-success'>Sign Up</h3></center>
+				<hr>
+				<div id='auth-form'>
+					<center>
+						<h4 class='text-danger'></h4>
+						<form class="form-horizontal" id='signUp' method='post'>
+						  	<div class="form-group">
+						    	<label for="username" class="col-sm-4 control-label">Email</label>
+						    	<div class="col-sm-8 col-md-8">
+						      		<input type="email" name='username' class="form-control" id="username" required="" autofocus="" placeholder="Email address" >
+						    	</div>
+						  	</div>
+						  	<div class='form-group'>
+						  		<label for='first-name' class='col-sm-4 control-label'>First Name </label>
+						  		<div class='col-sm-8 col-md-8'>
+						  			<input type="text" class='form-control' placeholder="Enter your first name" name='firstName' id='first-name' required="">
+						  		</div>
+						  	</div>
+						  	<div class='form-group'>
+						  		<label for='last-name' class='col-sm-4 control-label'>Last Name</label>
+						  		<div class='col-sm-8 col-md-8'>
+						  			<input type="text" name="lastName" class='form-control' placeholder="Enter your last name" id='last-name' required="">
+						  		</div>
+						  	</div>
+						  	<div class="form-group">
+						    	<label for="password" class="col-sm-4 control-label">Password</label>
+						    	<div class="col-sm-8 col-md-8">
+						      		<input type="password" class="form-control" name='password' id="password" required="" placeholder="Password">
+						    	</div>
+						  	</div>
+						  	<div class="form-group">
+						    	<div class="col-sm-offset-4 col-sm-8">
+						      		<button type="submit" name='signUp' class="btn btn-success">Sign Up</button>
+						    	</div>
+						  	</div>
+						  	<a href="index.html" class='pull-right btn btn-default btn-xs'>Sign In</a>
+						</form>
+					</center>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id='lll' style='width: 100%; height: 100%; position: fixed; top:0; background-color: rgba(0,0,0,0); z-index: 100;'>
+		<center>
+			<img src="../img/loader.gif" style='width: 10%; margin-top:25%;'>
+		</center>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/vendor.js"></script>
+	<script src="js/controllers.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#lll").css('display','none');
+		});
+		$(function(){
+			$('#lll').hide().ajaxStart( function() {
+				$(this).css('display','block');  // show Loading Div
+			} ).ajaxStop ( function(){
+				$(this).css('display','none'); // hide loading div
+			});
+		});
+	</script>
+</body>
+</html>

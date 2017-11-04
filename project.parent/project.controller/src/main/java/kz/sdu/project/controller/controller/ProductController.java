@@ -15,10 +15,12 @@ import kz.sdu.project.controller.utils.Controller;
 public class ProductController implements Controller {
     public BeanGetter<ProductRegister> productRegister;
 
+
     @ToJson
     @Mapping("/list")
     public ProductListDetails getList() {
         return productRegister.get().getProductListDetails();
+//        return "asdf";
     }
 
     @ToJson

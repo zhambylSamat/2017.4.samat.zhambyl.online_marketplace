@@ -1,3 +1,4 @@
 include 'project.client'
 include 'project.controller'
 include 'project.stand'
+include 'project.server'

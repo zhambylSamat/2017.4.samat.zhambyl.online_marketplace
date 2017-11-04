@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<letter>
+	<to><![CDATA[zhambyl-samat@mail.ru]]></to>
+	<from><![CDATA[zhambyl.9670@gmail.com]]></from>
+	<subject><![CDATA[Accout confirmation]]></subject>
+	<body><![CDATA[Follow to this link(http://localhost:3000/confirm_registration/4727953755716692912) and confirm your registration.
+Link: (http://localhost:3000/confirm_registration/4727953755716692912)]]></body>
+</letter>

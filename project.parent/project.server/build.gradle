@@ -1,0 +1,9 @@
+dependencies {
+    compile project(':project.controller')
+
+    compile "kz.greetgo.mvc:greetgo.mvc:2.0.7"
+    compile "kz.greetgo.depinject:greetgo.depinject:2.0.0"
+    compile "kz.greetgo:greetgo.email:0.0.10"
+    
+    testCompile "kz.greetgo.depinject:greetgo.depinject.testng:$greetgoDepInjectVersion"
+}

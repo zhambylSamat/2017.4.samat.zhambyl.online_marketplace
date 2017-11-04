@@ -3,6 +3,8 @@ package kz.sdu.project.stand.launcher;
 import kz.greetgo.depinject.Depinject;
 import kz.greetgo.depinject.gen.DepinjectUtil;
 import kz.sdu.project.stand.bean_containers.StandBeanContainer;
+import kz.sdu.project.stand.register_stand_impl.MainScheduler;
+import kz.sdu.project.stand.register_stand_impl.MyConfig;
 import kz.sdu.project.stand.util.Modules;
 
 public class LaunchStandServer {
@@ -13,8 +15,18 @@ public class LaunchStandServer {
     public void run() throws Exception {
         DepinjectUtil.implementAndUseBeanContainers("kz.sdu.project.stand",
                 Modules.standDir() + "/build/src_bean_container");
+        DepinjectUtil.implementAndUseBeanContainers("kz.sdu.project.server",
+                Modules.standDir() + "/build/src_bean_container");
+
+//        MyConfig myConfig = Depinject.newInstance(MyConfig.class);
 
         StandBeanContainer container= Depinject.newInstance(StandBeanContainer.class);
+        MainScheduler mainScheduler = container.getMainScheduler();
+        mainScheduler.startSchedulers(container.myTask());
+
+        MyConfig myConfig = container.myConfig();
+
+        System.out.println(myConfig.accountPassword());
 
         container.standServer().start().join();
     }
