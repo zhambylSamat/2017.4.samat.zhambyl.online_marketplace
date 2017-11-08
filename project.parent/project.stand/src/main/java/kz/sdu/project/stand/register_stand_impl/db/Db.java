@@ -6,6 +6,7 @@ import kz.sdu.project.controller.model.SessionInfo;
 import kz.sdu.project.stand.register_stand_impl.model.LinkStorageDTO;
 import kz.sdu.project.stand.register_stand_impl.model.ProductDTO;
 import kz.sdu.project.stand.register_stand_impl.model.UserDTO;
+import kz.sdu.project.stand.util.StandCommonConstant;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +22,7 @@ public class Db implements HasAfterInject {
     public Map<String, SessionInfo> sessionStorage = new HashMap<String, kz.sdu.project.controller.model.SessionInfo>();
     public Map<Long, String> genNumberStorage = new HashMap<>();
     public final Map<Long,LinkStorageDTO> linkStorage = new HashMap<>();
+    public Map<String, StandCommonConstant> tmpConfig = new HashMap<>();
 
     public final AtomicLong productSeq = new AtomicLong(0);
     public final AtomicLong userSeq = new AtomicLong(0);

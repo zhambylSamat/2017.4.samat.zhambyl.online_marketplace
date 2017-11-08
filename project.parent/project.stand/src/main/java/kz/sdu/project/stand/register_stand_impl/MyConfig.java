@@ -5,15 +5,15 @@ import kz.greetgo.conf.hot.DefaultStrValue;
 import kz.greetgo.conf.hot.Description;
 
 public interface MyConfig {
-    @DefaultStrValue("login@gmail.com")
+    @DefaultStrValue("crm.zhambyl@gmail.com")
     @Description("Login of account")
     String loginAccount();
 
-    @DefaultStrValue("12345")
+    @DefaultStrValue("crm.zhambyl_password")
     @Description("Password of account")
     String accountPassword();
 
-    @DefaultBoolValue(false)
+    @DefaultBoolValue(true)
     @Description("Nuzhno li otpravliat' email?")
     boolean needToSendEmail();
 }

@@ -1,11 +1,13 @@
 package kz.sdu.project.stand.bean_containers;
 
 import com.sun.mail.smtp.SMTPTransport;
+import kz.greetgo.depinject.Depinject;
 import kz.greetgo.depinject.core.Bean;
 import kz.greetgo.email.Email;
 import kz.greetgo.email.EmailSaver;
 import kz.greetgo.email.EmailSender;
 import kz.greetgo.email.EmailSenderController;
+import kz.sdu.project.stand.register_stand_impl.MyConfig;
 import kz.sdu.project.stand.util.StandCommonConstant;
 import javax.mail.Message;
 import javax.mail.Session;
@@ -18,7 +20,9 @@ import java.util.Properties;
 
 @Bean
 public class SendEmailServerFactory {
+    StandBeanContainer container = Depinject.newInstance(StandBeanContainer.class);
 
+    MyConfig myConfig = container.myConfig();
     @Bean
     public EmailSender createEmailSendersServer(){
         return new EmailSaver("Example","build/toSend");
@@ -37,7 +41,7 @@ public class SendEmailServerFactory {
             public void send(Email email){
 //                copy from https://github.com/greetgo->greetgo.email
                 try{
-                    StandCommonConstant cm = new StandCommonConstant();
+//                    StandCommonConstant cm = new StandCommonConstant();
 
                     Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 
@@ -66,8 +70,7 @@ public class SendEmailServerFactory {
                     msg.setSentDate(new Date());
 
                     SMTPTransport t = (SMTPTransport) session.getTransport("smtp");
-
-                    t.connect("smtp.gmail.com", cm.username, cm.password);
+                    t.connect("smtp.gmail.com", myConfig.loginAccount(), myConfig.accountPassword());
                     t.sendMessage(msg, msg.getAllRecipients());
 
                     t.close();

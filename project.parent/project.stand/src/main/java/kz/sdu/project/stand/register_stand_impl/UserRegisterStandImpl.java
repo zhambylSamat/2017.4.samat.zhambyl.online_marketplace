@@ -19,7 +19,7 @@ import java.util.Random;
 public class UserRegisterStandImpl implements UserRegister {
     public BeanGetter<Db> db;
     public BeanGetter<EmailSender> emailSenderBeanGetter;
-    public BeanGetter<EmailSenderController> emailSenderControllerBeanGetter;
+//    public BeanGetter<EmailSenderController> emailSenderControllerBeanGetter;
     public Long local_id;
 
     @Override
@@ -79,11 +79,8 @@ public class UserRegisterStandImpl implements UserRegister {
         emailSend.setTo(email);
         emailSend.setSubject("Accout confirmation");
         emailSend.setBody("Follow to this link("+link+") and confirm your registration.\nLink: ("+link+")");
-        System.out.println(emailSend.getTo()+" 1");
         emailSenderBeanGetter.get().send(emailSend);
-        System.out.println(emailSend.getTo()+" 2");
-        emailSenderControllerBeanGetter.get().sendAllExistingEmails();
-        System.out.println(emailSend.getTo()+" 3");
+//        emailSenderControllerBeanGetter.get().sendAllExistingEmails();
     }
     public String getLink(String username, Long id){
         Long minNumber = 123456712L;

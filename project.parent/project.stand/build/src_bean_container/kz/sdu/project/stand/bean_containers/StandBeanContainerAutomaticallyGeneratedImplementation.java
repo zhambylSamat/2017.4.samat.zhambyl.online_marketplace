@@ -493,6 +493,7 @@ public final class StandBeanContainerAutomaticallyGeneratedImplementation implem
       }
       try {
         kz.sdu.project.stand.register_stand_impl.MyTask localValue = new kz.sdu.project.stand.register_stand_impl.MyTask();
+        localValue.emailSenderControllerBeanGetter = (kz.greetgo.depinject.core.BeanGetter<kz.greetgo.email.EmailSenderController>)(java.lang.Object)getter_native_EmailSenderController_2;
         cachedValue_native_MyTask_20.set(localValue);
         return localValue;
       } catch (java.lang.Exception e) {
@@ -566,7 +567,6 @@ public final class StandBeanContainerAutomaticallyGeneratedImplementation implem
         kz.sdu.project.stand.register_stand_impl.UserRegisterStandImpl localValue = new kz.sdu.project.stand.register_stand_impl.UserRegisterStandImpl();
         localValue.db = (kz.greetgo.depinject.core.BeanGetter<kz.sdu.project.stand.register_stand_impl.db.Db>)(java.lang.Object)getter_native_Db_24;
         localValue.emailSenderBeanGetter = (kz.greetgo.depinject.core.BeanGetter<kz.greetgo.email.EmailSender>)(java.lang.Object)getter_native_EmailSender_1;
-        localValue.emailSenderControllerBeanGetter = (kz.greetgo.depinject.core.BeanGetter<kz.greetgo.email.EmailSenderController>)(java.lang.Object)getter_native_EmailSenderController_2;
         cachedValue_native_UserRegisterStandImpl_23.set(localValue);
         return localValue;
       } catch (java.lang.Exception e) {
